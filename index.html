@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYMON | Designer Gráfico</title>
+<meta name="description" content="Portfólio de design gráfico: identidade visual, social media, cartazes e embalagens.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F6FB; --ink:#0E1330; --orange:#FF5B2E; --lilac:#C8CBFF; --sun:#FFD23F; --mint:#9FE6C4;
+  --muted:#5A6082; --radius:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1}
+
+/* Nav */
+header{position:sticky;top:0;z-index:10;background:rgba(245,246,251,.85);backdrop-filter:blur(10px)}
+nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-weight:800;letter-spacing:-.03em;font-size:1.2rem}
+nav ul{display:flex;gap:28px;list-style:none;font-weight:500;font-size:.95rem}
+nav ul a:hover{color:var(--orange)}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .2s,background .2s}
+.btn:hover{background:var(--orange);transform:translateY(-2px)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:var(--sun)}
+
+/* Hero */
+.hero{padding:72px 0 96px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(3.2rem,11vw,9.5rem);letter-spacing:-.05em}
+.hero h1 span{display:block}
+.hero h1 .o{color:var(--orange)}
+.hero-row{display:flex;gap:32px;justify-content:space-between;align-items:flex-end;margin-top:40px;flex-wrap:wrap}
+.hero p{max-width:460px;font-size:1.15rem;color:var(--muted)}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.shapes{position:absolute;right:4%;top:40px;width:min(34vw,380px);aspect-ratio:1;pointer-events:none}
+.shapes i{position:absolute;display:block}
+.shapes .c{inset:8% 0 0 22%;background:var(--lilac);border-radius:50%}
+.shapes .s{width:46%;height:46%;left:0;bottom:6%;background:var(--sun);border-radius:22%;transform:rotate(-12deg)}
+.shapes .t{right:6%;top:0;width:0;height:0;border-left:44px solid transparent;border-right:44px solid transparent;border-bottom:76px solid var(--orange);transform:rotate(14deg)}
+.sticker{position:absolute;right:6%;bottom:36px;width:130px;height:130px;border-radius:50%;background:var(--mint);display:grid;place-items:center;text-align:center;font-weight:800;font-size:.85rem;line-height:1.2;letter-spacing:-.01em;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:760px){.shapes{opacity:.35;right:-10%}.sticker{display:none}nav ul{display:none}}
+
+/* Marquee */
+.strip{background:var(--ink);color:#fff;padding:18px 0;overflow:hidden;white-space:nowrap}
+.strip div{display:inline-block;font-weight:800;font-size:1.4rem;letter-spacing:-.02em;animation:slide 28s linear infinite}
+.strip span{margin:0 22px}
+.strip b{color:var(--orange)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+h2{font-size:clamp(2.2rem,5.5vw,4.2rem);margin-bottom:48px}
+
+/* Work grid */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.card{position:relative;min-height:340px;border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;transition:transform .3s;color:#fff}
+.card:hover{transform:scale(.985)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.05)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,19,48,.75),rgba(14,19,48,0) 55%)}
+.card h3{font-size:1.6rem;position:relative;z-index:1;color:#fff}
+.card p{font-size:.95rem;position:relative;z-index:1;color:#fff;opacity:.85}
+.w2{grid-column:span 2}.w3{grid-column:span 3}.w4{grid-column:span 4}
+.tall{min-height:460px}
+.c1{background:var(--orange)}
+.c2{background:var(--lilac)}
+.c3{background:var(--sun)}
+.c4{background:var(--ink)}
+.c5{background:var(--mint)}
+.note{margin-top:28px;color:var(--muted);font-size:.9rem}
+@media (max-width:860px){.grid{grid-template-columns:1fr 1fr}.w2,.w3,.w4{grid-column:span 2}.tall{min-height:340px}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.w2,.w3,.w4{grid-column:auto}}
+
+/* Services */
+.services{background:#fff;border-radius:48px 48px 0 0}
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.svc{padding:28px;border-radius:var(--radius);background:var(--paper)}
+.svc h3{font-size:1.35rem;margin-bottom:12px}
+.svc p{color:var(--muted);font-size:.98rem}
+.svc:nth-child(2){background:var(--lilac)}
+.svc:nth-child(3){background:var(--sun)}
+.svc:nth-child(4){background:var(--mint)}
+
+/* About */
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+.photo{aspect-ratio:4/5;border-radius:200px 200px var(--radius) var(--radius);background:var(--lilac);display:grid;place-items:center;text-align:center;color:var(--ink);font-weight:700;padding:24px}
+.photo{position:relative;overflow:hidden}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.about p{font-size:1.15rem;color:var(--muted);margin-bottom:18px;max-width:560px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.tools span{padding:10px 18px;border-radius:999px;border:2px solid var(--ink);font-weight:700;font-size:.9rem}
+@media (max-width:760px){.about{grid-template-columns:1fr}.photo{max-width:320px}}
+
+/* Contact */
+.contact{background:var(--orange);color:#fff;border-radius:48px;margin:0 24px 24px;padding:96px 24px;text-align:center}
+.contact h2{font-size:clamp(2.6rem,8vw,7rem);margin-bottom:32px;letter-spacing:-.05em}
+.contact .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;padding:12px 24px 40px;color:var(--muted);font-size:.9rem}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Principal">
+      <a class="logo" href="./img/Emblema S Geométrico Moderno.png">SYMON</a>
+      <ul>
+        <li><a href="#trabalhos">Trabalhos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+      </ul>
+      <a class="btn" href="#contacto">Fale comigo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap">
+      <div class="shapes" aria-hidden="true"><i class="c"></i><i class="s"></i><i class="t"></i></div>
+      <h1><span>Design que</span><span>faz marcas</span><span class="o">serem vistas.</span></h1>
+      <div class="hero-row">
+        <div>
+          <p>Sou designer gráfico e crio identidades visuais, conteúdo para redes sociais e peças de comunicação que as pessoas lembram.</p>
+          <div class="actions">
+            <a class="btn" href="#trabalhos">Ver trabalhos</a>
+            <a class="btn light" href="#contacto">Pedir orçamento</a>
+          </div>
+        </div>
+      </div>
+      <div class="sticker" aria-hidden="true">Aberto a novos projetos</div>
+    </div>
+  </div>
+
+  <div class="strip" aria-hidden="true">
+    <div>
+      <span>Identidade visual</span><b>✦</b><span>Social media</span><b>✦</b><span>Cartazes</span><b>✦</b><span>Logotipos</span><b>✦</b><span>Embalagens</span><b>✦</b>
+      <span>Identidade visual</span><b>✦</b><span>Social media</span><b>✦</b><span>Cartazes</span><b>✦</b><span>Logotipos</span><b>✦</b><span>Embalagens</span><b>✦</b>
+    </div>
+  </div>
+
+  <section id="trabalhos">
+    <div class="wrap">
+      <h2>Trabalhos selecionados</h2>
+      <div class="grid">
+        <a class="card c1 w4 tall" href="./img/feitos.gif"><img src="./img/feitos.gif" alt="Projeto 1" loading="lazy"><h3>Nome do Projeto 1</h3><p>Campanha para redes sociais</p></a>
+        <a class="card c2 w2 tall" href="./img/QR-code-cracha.gif"><img src="./img/QR-code-cracha.gif" alt="Projeto 2" loading="lazy"><h3>Projeto 2</h3><p>Crachá</p></a>
+        <a class="card c3 w2" href="./img/cartza.gif"><img src="./img/cartza.gif" alt="Projeto 3" loading="lazy"><h3>Projeto 3</h3><p>Identidade visual</p></a>
+        <a class="card c4 w2" href="./img/Emblema S Geométrico Moderno.png"><img src="./img/Emblema S Geométrico Moderno.png" alt="Projeto 4" loading="lazy"><h3>Projeto 4</h3><p>Logotipo e marca</p></a>
+        <a class="card c5 w2" href="./img/django-coach-MJZ.png"><img src="./img/django-coach-MJZ.png" alt="Projeto 5" loading="lazy"><h3>Projeto 5</h3><p>Cartaz (Django Girls)</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos" class="services">
+    <div class="wrap">
+      <h2>O que posso fazer por si</h2>
+      <div class="list">
+        <div class="svc"><h3>Identidade visual</h3><p>Logotipo, cores, tipografia e regras de uso para a sua marca ficar consistente.</p></div>
+        <div class="svc"><h3>Redes sociais</h3><p>Posts, carrosséis e capas com visual próprio, prontos para publicar.</p></div>
+        <div class="svc"><h3>Cartazes e flyers</h3><p>Peças para eventos, promoções e campanhas, para digital e impressão.</p></div>
+        <div class="svc"><h3>Embalagens</h3><p>Rótulos e caixas que se destacam na prateleira e comunicam o produto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" style="background:#fff;padding-top:0">
+    <div class="wrap about">
+      <div class="photo">
+       <img src="./img/Retrato Cinematográfico em Fato Preto.png" alt="Foto de Symon" loading="lazy">
+      </div>
+      <div>
+        <h2 style="margin-bottom:28px">Olá, eu sou Symon</h2>
+        <p>Sou designer gráfico e trabalho com marcas, empresas e criadores que querem uma imagem clara e profissional. Gosto de cores fortes, tipografia com personalidade e ideias simples.</p>
+        <p>Cada projeto começa com uma conversa para entender o negócio, o público e o que precisa de ser comunicado.</p>
+        <div class="tools"><span>Photoshop</span><span>Canva</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="background:#fff;padding-bottom:24px">
+    <div class="contact">
+      <h2>Vamos criar algo juntos?</h2>
+      <div class="actions">
+        <a class="btn light" href="mailto:simaobuque335@gmail.com">Enviar e-mail</a>
+        <a class="btn" href="https://wa.me/258860759030">Chamar no WhatsApp</a>
+        <a class="btn" href="https://instagram.com/im_symon_017">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Symon. Todos os direitos reservados.</footer>
+
+</body>
+</html>
